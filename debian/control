@@ -1,0 +1,16 @@
+Source: com.github.saidbakr.quick-shutdown
+Section: x11
+Priority: optional
+Maintainer: Said Bakr <said_fox@yahoo.com>
+Build-Depends: debhelper (>= 10.5.1),
+               gettext,
+               libgtk-3-dev (>= 3.10),
+               posix,
+               meson,
+               valac (>= 0.28.0)
+Standards-Version: 4.1.1
+
+Package: com.github.saidbakr.quick-shutdown
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: Shutdown your computer directly and quickly without any messages.
