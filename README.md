@@ -10,7 +10,7 @@ Linux application that allows performing shutdown quickly by just clicking its i
  6. That's all.
  
  ### Notice:
- If you get any issue about GTK dependency during running `meson` try to `sudo apt install libgtk-3-dev` or if you use non debian based distro, the follwoing is an *[**example**](https://wiki.gnome.org/Projects/Vala/GTKSample)* to install GTK there:
+ If you get any issue about GTK dependency during running `meson` try to `sudo apt install libgtk-3-dev` or if you use non debian based distro, the follwoing is an *[**example**](https://wiki.gnome.org/Projects/Vala/GTKSample "The hint reference")* to install GTK there:
  ```
  Fedora >= 15: gtk3-devel
  openSUSE >= 11.4: gtk3-devel
