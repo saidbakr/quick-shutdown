@@ -3,7 +3,7 @@
 Name=Quick Shutdown
 GenericName=Shutdown the computer directly
 Comment=Usability utility that allows quick shutdown the computer
-Categories=Utility;Accessories;System Tools;
+Categories=Utility;Utilities;System;Accessories;System Tools;
 Exec=com.github.saidbakr.quick-shutdown
 Icon=system-shutdown
 Terminal=false
