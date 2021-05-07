@@ -26,7 +26,65 @@ public class MyApp : Gtk.Application {
         );
     }
     protected override void activate () {
-        Posix.system("shutdown now");
+        if (this.confirmActive()){
+            // show confirmation box;
+            this.createConfirm();
+        }
+        else{
+            Posix.system("shutdown now");
+        }
+    }
+    /*
+    If confirmation message enabled or not
+    */
+    public bool confirmActive (){
+        var file = File.new_for_path(Environment.get_home_dir ()+"/.config/com.github.saidbakr.quick-shutdown/confirm");
+        if (file.query_exists()){
+            return true;
+        }
+        else{
+            return false;
+        }        
+    }
+    /*
+    Creates confiration window.
+    */
+    public Object createConfirm(){
+        var window = new Gtk.Window ();
+        var grid = new Gtk.Grid () {
+            orientation = Gtk.Orientation.VERTICAL,
+            column_spacing = 6,
+            row_spacing = 6
+        };
+        window.add(grid);
+        window.title = "Shutdown Confirmation";
+        window.border_width = 10;
+        window.window_position = Gtk.WindowPosition.CENTER;
+        window.set_default_size (350, 80);
+        window.destroy.connect (Gtk.main_quit);
+
+        var label = new Gtk.Label(null);
+        label.set_text("Are you sure to turn off now?");
+
+
+        var shutdown = new Gtk.Button.with_label ("Shutdown Now");
+        //shutdown.
+        shutdown.clicked.connect (() => {
+            Posix.system("shutdown now");        
+        });
+        var cancel = new Gtk.Button.with_label ("Cancel");
+        cancel.clicked.connect (() => {
+        cancel.label = "Thank you";
+        window.close();
+        });
+
+    grid.attach(label,0,0);
+    grid.attach (shutdown, 0,1);
+    grid.attach (cancel, 1,1);
+    window.show_all ();
+
+    Gtk.main ();
+    return window;
     }
     public static int main(string[] args){
         var app = new MyApp();

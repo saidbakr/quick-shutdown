@@ -8,6 +8,13 @@ Linux application that allows performing shutdown quickly by just clicking its i
  4. `cd build` 
  5. `ninja` then `sudo ninja install`.
  6. That's all.
+
+ ## Adding optional confirm
+ To allow an optional quick confirmation message before shutdown, in the case of hitting the application icon on mistake. You just have to enter the follwoing command in the bash terminal:
+ ```
+ touch ~/.config/com.github.saidbakr.quick-shutdown/confirm
+ ```
+ That command creates an empty file at `yourHomeDir/.config/com.github.saidbakr.quick-shutdown/confirm` and if you want to restore the default bahvior of immediate shutdown, you have to delete or rename the the file named `confirm` in that path.
  
  ### Notice:
  If you get any issue about GTK dependency during running `meson` try to `sudo apt install libgtk-3-dev` or if you use non debian based distro, the follwoing is an *[**example**](https://wiki.gnome.org/Projects/Vala/GTKSample "The hint reference")* to install GTK there:
