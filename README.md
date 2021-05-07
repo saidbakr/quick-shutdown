@@ -8,3 +8,6 @@ Linux application that allows performing shutdown quickly by just clicking its i
  4. `cd build` 
  5. `ninja` then `sudo ninja install`.
  6. That's all.
+ 
+ ### Notice:
+ If you get any issue about GTK dependency during running `meson` try to `sudo apt install libgtk-3-dev`
