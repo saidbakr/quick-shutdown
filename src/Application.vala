@@ -1,5 +1,5 @@
 /*
-* Copyright (c) 2011-2018 Your Organization (https://linkedin.com/saidbakr)
+* Copyright (c) 2011-2021 Your Organization (https://linkedin.com/saidbakr)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -35,7 +35,7 @@ public class MyApp : Gtk.Application {
         }
     }
     /*
-    If confirmation message enabled or not
+    Check if confirmation message enabled or not
     */
     public bool confirmActive (){
         var file = File.new_for_path(Environment.get_home_dir ()+"/.config/com.github.saidbakr.quick-shutdown/confirm");
@@ -47,11 +47,9 @@ public class MyApp : Gtk.Application {
         }        
     }
     /*
-    Creates confiration window.
+    Creates confirmation window.
     */
-    public Object createConfirm(){
-       /*   var css_provider = new Gtk.CssProvider();
-        css_provider.load_from_data("* { background-color: #f00; }");*/
+    public Object createConfirm(){       
         var window = new Gtk.Window ();
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
@@ -65,27 +63,14 @@ public class MyApp : Gtk.Application {
         window.set_default_size (350, 80);
         window.destroy.connect (Gtk.main_quit);
 
-        Gtk.CssProvider css_provider = new Gtk.CssProvider ();
-        
+        Gtk.CssProvider css_provider = new Gtk.CssProvider ();        
         css_provider.load_from_resource ("/com/github/saidbakr/quick-shutdown/src/resources/mycss.css");
-        
-        
         Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         var label = new Gtk.Label(null);
         var label_text = "Are you sure to turn off now?";
         label.get_style_context().add_class("ask");
         label.set_markup(label_text);
-
-      /*   var css = "* { background-color: #f00; }";
-    var css_provider = new Gtk.CssProvider();
-    css_provider.load_from_data(css);
-    var context = new Gtk.StyleContext();
-    var screen = new Gdk.Screen.get_default();
-    context.add_provider_for_screen(screen, css_provider,
-                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);*/
-        
-
 
         var shutdown = new Gtk.Button.with_label ("Shutdown Now");
         shutdown.get_style_context().add_class("shutdown");
