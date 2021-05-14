@@ -1,5 +1,0 @@
-[Runtime]
-name=com.github.saidbakr.quick_shutdown.Debug
-
-[ExtensionOf]
-ref=app/com.github.saidbakr.quick-shutdown/x86_64/master
