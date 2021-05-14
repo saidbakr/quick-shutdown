@@ -50,8 +50,6 @@ public class MyApp : Gtk.Application {
     Creates confiration window.
     */
     public Object createConfirm(){
-       /*   var css_provider = new Gtk.CssProvider();
-        css_provider.load_from_data("* { background-color: #f00; }");*/
         var window = new Gtk.Window ();
         var grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL,
@@ -65,30 +63,11 @@ public class MyApp : Gtk.Application {
         window.set_default_size (350, 80);
         window.destroy.connect (Gtk.main_quit);
 
-        Gtk.CssProvider css_provider = new Gtk.CssProvider ();
-        
-        css_provider.load_from_resource ("/com/github/saidbakr/quick-shutdown/src/resources/mycss.css");
-        
-        
-        Gtk.StyleContext.add_provider_for_screen (Gdk.Screen.get_default (), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
         var label = new Gtk.Label(null);
-        var label_text = "Are you sure to turn off now?";
-        label.get_style_context().add_class("ask");
-        label.set_markup(label_text);
-
-      /*   var css = "* { background-color: #f00; }";
-    var css_provider = new Gtk.CssProvider();
-    css_provider.load_from_data(css);
-    var context = new Gtk.StyleContext();
-    var screen = new Gdk.Screen.get_default();
-    context.add_provider_for_screen(screen, css_provider,
-                                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);*/
-        
+        label.set_text("Are you sure to turn off now?");
 
 
         var shutdown = new Gtk.Button.with_label ("Shutdown Now");
-        shutdown.get_style_context().add_class("shutdown");
         //shutdown.
         shutdown.clicked.connect (() => {
             Posix.system("shutdown now");        

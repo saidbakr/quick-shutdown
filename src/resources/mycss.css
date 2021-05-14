@@ -1,0 +1,18 @@
+.ask{
+    color: red;
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: #F5F5F5 1px 1px 4px;
+}
+.shutdown{
+    color: rgb(245, 233, 233);
+    background: brown;
+    text-shadow: #a8a1a1 0px 0px 5px;
+}
+.shutdown:hover{
+    background: chocolate;
+    color:darkblue;
+}
+label{
+    font-weight: bold;
+}

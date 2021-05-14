@@ -10,6 +10,7 @@ Linux application that allows performing shutdown quickly by just clicking its i
  6. That's all.
 
  ## Adding optional confirm
+ [!Screenshot](screenshot.png "Confirmation Window")
  To allow an optional quick confirmation message before shutdown, in the case of hitting the application icon on mistake. You just have to enter the follwoing command in the bash terminal:
  ```
  touch ~/.config/com.github.saidbakr.quick-shutdown/confirm
